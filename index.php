@@ -14,7 +14,7 @@
             include 'functions/arrayStuff.php';
             
             $array = array();
-            $array["slice up that fucker."]= "That's what they say";
+            $array["slice up that fucker."]= "Watch your mouth. But yeah, Cut up the rod into pieces, each having charge deltaQ.";
             $array["What are you really asking?"] = "Well, just for your bank account number is all.";
             $array["Only Snoop knows."] = "Snoop is dead.";
             new radio("test", $array);
