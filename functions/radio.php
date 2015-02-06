@@ -28,18 +28,18 @@ class radio {
        echo '<form class="panel-group bg-info" id = "'.$parent.'" >';
        $uniqHit = uniqid("hit");
        echo '<script> var '.$uniqHit.' = false;</script>';
-     $count = 0;
+     $counti = 0;
       foreach($this->array as $value  => $response){
         $id = uniqid(ord($value));
         //radio button
-        echo '<div class="panel panel-default bg-info">';
-        echo '<input data-parent="#'.$parent.'"  data-toggle="collapse" data-target="#'.$id.'" type="radio" name="'.$this->name.'" value="'.ord($value).'" >'.ucfirst($value);
+        echo '<div class="panel  bg-info">';
+        echo '<input id="radio'.$id.'" data-parent="#'.$parent.'"  data-toggle="collapse" data-target="#'.$id.'" type="radio" name="'.$this->name.'" value="'.ord($value).'" >'.ucfirst($value);
          //take care of score
          echo '<script>
-             $("[value=\''.ord($value).'\']").click(function(){
+             $("[id=\'radio'.$id.'\']").click(function(){
                 if(!'.$uniqHit.'){
                     '.$uniqHit.' = true;
-                    count +='.$response->score.';
+                    count = count + '.$response->score.';
                     $("#score").html("<b>" + count + "</b>");
                     $("#Ani'.$id.'").html("<b>\+"+'.$response->score.'+"</b>");
                     $("#Ani'.$id.'").animate({left: \'250px\',},"slow");
@@ -48,7 +48,7 @@ class radio {
              </script>';
          echo '</div>';
          //response element
-         if($count == 0){
+         if($counti == 0){
             echo '<div id="'.$id.'" class="panel-collapse collapse">';
  
          }
@@ -62,7 +62,7 @@ class radio {
             echo '</div>';
          echo '</div>';
          echo '</div>';
-         $count ++;
+         $counti ++;
        }
        echo '</form>';
    }
